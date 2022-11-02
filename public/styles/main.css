@@ -1,0 +1,47 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*? Logo animation */
+.logo-parent {
+    display: flex;
+    justify-content: flex-start;
+    margin: 0.3rem;
+}
+
+.img1 {
+    z-index: 2;
+    max-width: 10px;
+}
+
+.img2 {
+    position: absolute;
+    z-index: 1;
+    top: 2.8%;
+    left: 1.5%;
+    max-width: 8px;
+}
+.img1 {
+    animation-name: rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    border-radius: 50%;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(-360deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
