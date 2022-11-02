@@ -1,0 +1,33 @@
+{
+    "name": "artwit",
+    "version": "1.0.0",
+    "description": "Tema: Blog despre Arta   Entitate: Articole Campuri:   -Categorii: titlu categoriei   -Articole: titlu,imagine, descriere",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/timi-petre/artwit.git"
+    },
+    "keywords": [
+        "artwit",
+        "node",
+        "server"
+    ],
+    "author": "Timi Petre",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/timi-petre/artwit/issues"
+    },
+    "homepage": "https://github.com/timi-petre/artwit#readme",
+    "dependencies": {
+        "dotenv": "^16.0.3",
+        "ejs": "^3.1.8",
+        "express": "^4.18.2",
+        "express-ejs-layouts": "^2.5.1",
+        "nodemon": "^2.0.20",
+        "underscore": "^1.13.6"
+    }
+}

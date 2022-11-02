@@ -10,31 +10,75 @@ html {
     padding: 0px;
 }
 
+body {
+    background-color: #eee;
+}
+
+header,
+footer {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.93);
+    border-radius: 10px;
+    margin: 20px 0 20px 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    margin: 15px;
+}
+
+nav ul {
+    position: inherit;
+    width: auto;
+    background: none;
+    height: auto;
+    display: flex;
+    padding-top: 5px;
+}
+nav ul li {
+    float: left;
+    list-style-type: none;
+}
+nav ul li a {
+    color: black;
+    background-color: inherit;
+    text-align: right;
+    text-decoration: none;
+    padding: 1em 2em;
+}
+nav ul li a:hover {
+    background-color: rgb(65, 73, 78);
+    border-radius: 10px;
+    color: white;
+}
+
 /*? Logo animation */
 .logo-parent {
     display: flex;
     justify-content: flex-start;
-    margin: 0.3rem;
 }
 
 .img1 {
     z-index: 2;
-    max-width: 10px;
-}
-
-.img2 {
-    position: absolute;
-    z-index: 1;
-    top: 2.8%;
-    left: 1.5%;
-    max-width: 8px;
-}
-.img1 {
+    width: 33px;
     animation-name: rotate;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     border-radius: 50%;
+}
+
+.img2 {
+    position: relative;
+    z-index: 1;
+    top: -1px;
+    right: 50%;
+    width: 32px;
 }
 
 @keyframes rotate {
