@@ -1,4 +1,4 @@
-# artwit
+# Artwit
 
 Tema: Blog despre Arta
   Entitate: Articole
