@@ -12,6 +12,7 @@ const port = process.env.PORT || 3000
 
 //? Set Template Engine
 app.set('layout', './layouts/sign-layout.ejs')
+app.set('layout', './layouts/articles-width')
 app.set('layout', './layouts/full-width')
 app.set('views', './views')
 app.set('view engine', 'ejs')
@@ -59,13 +60,12 @@ app.get('/', (req, res) => {
         title: 'Home Page',
         name: 'w',
         articles: articles,
-        layout: './layouts/full-width.ejs',
     })
 })
 
 //?Import Routes
 app.use('/', userRouter)
-app.use('/', articleRouter)
+app.use('/articles', articleRouter)
 
 //? Open Port 3000
 app.listen(port, () =>
