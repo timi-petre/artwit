@@ -1,8 +1,5 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config()
-}
-
-const router = require('express').Router()
+const express = require('express')
+const router = express.Router()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const flash = require('express-flash')
@@ -10,6 +7,7 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 
 const initializePassport = require('../passport-config')
+
 router.use(flash())
 router.use(
     session({
@@ -18,6 +16,7 @@ router.use(
         saveUninitialized: false,
     }),
 )
+
 router.use(passport.initialize())
 router.use(passport.session())
 router.use(methodOverride('_method'))
@@ -25,22 +24,28 @@ router.use(methodOverride('_method'))
 initializePassport(
     passport,
     (email) => users.find((user) => user.email === email),
+
     (id) => users.find((user) => user.id === id),
 )
 
 const users = []
-router.get('/', checkAuthenticated, (req, res) => {
-    res.render('index', { title: 'Home Page', name: req.user.name })
+
+router.get('/users', checkAuthenticated, (req, res) => {
+    res.render('users', {
+        title: 'User Page',
+        name: req.user.name,
+    })
 })
+
 router.get('/about', checkAuthenticated, (req, res) => {
     res.render('about', {
-        title: 'About',
+        title: 'About Page',
         name: req.user.name,
     })
 })
 
 router.get('/login', checkNotAuthenticated, (req, res) => {
-    res.render('login.ejs', {
+    res.render('pages/user/login', {
         title: 'Login Page',
         layout: './layouts/sign-layout.ejs',
     })
@@ -56,7 +61,7 @@ router.post(
 )
 
 router.get('/register', checkNotAuthenticated, (req, res) => {
-    res.render('register.ejs', {
+    res.render('pages/user/register', {
         title: 'Register Page',
         layout: './layouts/sign-layout.ejs',
     })
@@ -71,9 +76,9 @@ router.post('/register', checkNotAuthenticated, async (req, res) => {
             email: req.body.email,
             password: hashedPassword,
         })
-        res.redirect('/login')
+        res.redirect('login')
     } catch {
-        res.redirect('/register')
+        res.redirect('register')
     }
 })
 
@@ -82,7 +87,7 @@ router.delete('/logout', (req, res) => {
         if (err) {
             return next(err)
         }
-        res.redirect('/login')
+        res.redirect('login')
     })
 })
 
@@ -90,7 +95,7 @@ function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
         return next()
     }
-    res.redirect('/login')
+    res.redirect('login')
 }
 
 function checkNotAuthenticated(req, res, next) {
