@@ -3,69 +3,73 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express')
-const expressLayout = require('express-ejs-layouts')
-const userRouter = require('./routes/users')
-const articleRouter = require('./routes/articles')
+const passport = require('passport')
+const expressLayouts = require('express-ejs-layouts')
+const mongoose = require('mongoose')
+const flash = require('connect-flash')
+const session = require('express-session')
 
 const app = express()
 const port = process.env.PORT || 3000
 
+require('./config/passport')(passport)
+
+//Connect flash
+app.use(flash())
+
+const db = require('./config/keys').MongoURI
+
+// Connect to Mongo
+mongoose
+    .connect(db, {})
+    .then(() => console.log('MongoDB Connected'))
+    .catch((err) => console.log(err))
+
 //? Set Template Engine
-app.set('layout', './layouts/sign-layout.ejs')
-app.set('layout', './layouts/articles-width')
-app.set('layout', './layouts/full-width')
+app.use(expressLayouts)
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
-//? Static Files
-app.use(expressLayout)
+//? Layouts
+app.set('layout', './layouts/sign-layout.ejs')
+app.set('layout', './layouts/full-width')
+
+// BodyParser
 app.use(express.urlencoded({ extended: false }))
+
+//? Static Files
+
 app.use(express.static('public'))
 app.use(express.json())
 app.use('/styles', express.static(__dirname + '/public/styles'))
 app.use('/js', express.static(__dirname + '/public/js'))
 app.use('/img', express.static(__dirname + '/public/img'))
 
-//? MongoDB
+//Express Session
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+    }),
+)
 
-const mongoose = require('mongoose')
-mongoose
-    .connect('mongodb://localhost:3000/artblog')
-    .then(() => {
-        console.log('Connected')
-    })
-    .catch((e) => {
-        console.log('Something went wrong', e)
-    })
+//Passport Middleware
+app.use(passport.initialize())
+app.use(passport.session())
 
-//? Navigation
-app.get('/', (req, res) => {
-    const articles = [
-        {
-            title: 'First Article',
-            createdAt: new Date(),
-            createdBy: 'test1',
-            description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        },
-        {
-            title: 'Second Article',
-            createdAt: new Date(),
-            createdBy: 'test2',
-            description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-        },
-    ]
-    res.render('pages/articles/index', {
-        title: 'Home Page',
-        name: 'w',
-        articles: articles,
-    })
+// Global Vars
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.error_msg = req.flash('error_msg')
+    res.locals.error = req.flash('error')
+    next()
 })
 
 //?Import Routes
-app.use('/', userRouter)
-app.use('/articles', articleRouter)
+app.use('/', require('./routes/index'))
+app.use('/users', require('./routes/users'))
+app.use('/articles', require('./routes/articles'))
 
 //? Open Port 3000
 app.listen(port, () =>

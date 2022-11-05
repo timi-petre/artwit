@@ -60,20 +60,22 @@ nav ul li a:hover {
     border-radius: 10px;
     color: white;
 }
+
 .logo-text a {
     color: black;
     text-decoration: none;
 }
+
 .logo-text {
     position: relative;
     z-index: 2;
     top: 6px;
-    left: -20.8%;
+    left: -20.5%;
 }
 
 @media only screen and (min-width: 1200px) {
     .logo-text {
-        left: -29.3%;
+        left: -29%;
     }
 }
 
@@ -81,6 +83,18 @@ nav ul li a:hover {
 .logo-parent {
     display: flex;
     justify-content: flex-start;
+}
+
+.welcome {
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.welcome > .welcome-img1 {
+    z-index: 1;
+    width: 30%;
+    margin-bottom: 20px;
 }
 
 .img1 {

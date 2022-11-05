@@ -1,13 +1,13 @@
 const express = require('express')
 const Article = require('../models/article')
 const router = express.Router()
+router.use('/styles', express.static(__dirname + '/public/styles'))
 
 router.get('/new', (req, res) => {
     res.render('pages/articles/new', {
         article: new Article(),
-        title: 'Article Page',
+        title: 'Articles',
         name: 'w',
-        layout: './layouts/articles-width.ejs',
     })
 })
 
@@ -16,7 +16,6 @@ router.get('/:id', async (req, res) => {
     if (article == null) res.redirect('/')
     res.render('pages/articles/show', {
         articles: article,
-        layout: './layouts/articles-width.ejs',
     })
 })
 
@@ -33,9 +32,8 @@ router.post('/', async (req, res) => {
         // console.log(e)
         res.render('pages/articles/new', {
             article: article,
-            title: 'New Article Page',
+            title: 'New Article',
             name: 'w',
-            layout: './layouts/articles-width.ejs',
         })
     }
 })
