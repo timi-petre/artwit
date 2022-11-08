@@ -31,8 +31,7 @@ app.set('views', './views')
 app.set('view engine', 'ejs')
 
 //? Layouts
-app.set('layout', './layouts/sign-layout.ejs')
-app.set('layout', './layouts/full-width')
+app.set('layout', './layouts/default')
 
 // BodyParser
 app.use(express.urlencoded({ extended: false }))
@@ -69,9 +68,9 @@ app.use((req, res, next) => {
 //?Import Routes
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
-app.use('/articles', require('./routes/articles'))
+app.use('/create', require('./routes/create'))
 
 //? Open Port 3000
 app.listen(port, () =>
-    console.log(`Artblog app listening on port http://localhost:${port} !`),
+    console.log(`Server listening on port http://localhost:${port} !`),
 )

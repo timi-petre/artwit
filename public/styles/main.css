@@ -60,6 +60,9 @@ nav ul li a:hover {
     border-radius: 10px;
     color: white;
 }
+a {
+    text-decoration: none;
+}
 
 .logo-text a {
     color: black;
@@ -68,14 +71,16 @@ nav ul li a:hover {
 
 .logo-text {
     position: relative;
+
     z-index: 2;
-    top: 6px;
-    left: -20.5%;
+    width: max-content;
+    /* top: 6px;
+    left: -21.5%; */
 }
 
 @media only screen and (min-width: 1200px) {
     .logo-text {
-        left: -29%;
+        left: -29.7%;
     }
 }
 
