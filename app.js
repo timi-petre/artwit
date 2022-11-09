@@ -10,7 +10,7 @@ const flash = require('connect-flash')
 const session = require('express-session')
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 
 require('./config/passport')(passport)
 
@@ -69,6 +69,7 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/index'))
 app.use('/users', require('./routes/users'))
 app.use('/create', require('./routes/create'))
+app.use(require('./routes/blog'))
 
 //? Open Port 3000
 app.listen(port, () =>

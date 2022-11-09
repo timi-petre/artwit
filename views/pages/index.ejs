@@ -1,17 +1,24 @@
-<div class="container-fluid py-5">
-  <h2><%- title %></h2>
+<div class="container mt-3 py-5">
+    <h2><%- title %></h2>
 
-  <% blogs.forEach(blog=>{ %>
-  <div class="card mt-3 my-5" style="width: 20rem;">
-    <div class="card-body">
-      <h6 class="text-muted">Author: <%= blog.name %> </h6>
-      <h5 class="card-title"> <%= blog.title %> </h5>
-      <p class="card-text"> <%= blog.content.slice(0,99) %> .... <a href="#">Read more</a></p>
-      <p class="text-muted">Published at: <b> <%= blog.createdAt.toLocaleString() %> </b></p>
-      <a href="#" class="btn btn-primary">Read more...</a>
+    <% blogs.reverse() %> <% blogs.forEach(blog=>{ %>
+    <div class="card mt-3 my-5" style="width: 20rem">
+        <div class="card-body">
+            <h6 class="text-muted">Author: <%= blog.name %></h6>
+            <h5 class="card-title"><%= blog.title %></h5>
+            <p class="card-text">
+                <%= blog.content.slice(0,99) %> ....
+                <a href="/blog/<%= blog._id %>">Read more</a>
+            </p>
+            <p class="text-muted">
+                Published at: <b> <%= blog.createdAt.toLocaleString() %> </b>
+            </p>
+            <a href="/blog/<%= blog._id %>" class="btn btn-primary"
+                >Read more...</a
+            >
+            <a href="/delete/<%=blog._id%>" class="btn btn-danger">Delete</a>
+            <a href="/edit/<%=blog._id%>" class="btn btn-warning">Edit</a>
+        </div>
     </div>
-  </div>
-  <% }) %>
-
-
+    <% }) %>
 </div>
