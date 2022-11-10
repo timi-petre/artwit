@@ -40,9 +40,9 @@ app.use(express.urlencoded({ extended: false }))
 
 app.use(express.static('public'))
 app.use(express.json())
-app.use('/styles', express.static(__dirname + '/public/styles'))
-app.use('/js', express.static(__dirname + '/public/js'))
-app.use('/img', express.static(__dirname + '/public/img'))
+// app.use('/styles', express.static(__dirname + '/public/styles'))
+// app.use('/js', express.static(__dirname + '/public/js'))
+// app.use('/img', express.static(__dirname + '/public/img'))
 
 //Express Session
 app.use(

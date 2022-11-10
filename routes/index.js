@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 router.get('/index', async (req, res) => {
     const allBlogs = await Blog.find()
     res.render('pages/index', {
-        title: 'Blogs',
+        title: 'All Blogs',
         blogs: allBlogs,
         name: req.user.name,
     })
@@ -33,6 +33,7 @@ router.get('/dashboard', (req, res) => {
     res.render('pages/dashboard', {
         title: 'Dashboard',
         name: req.user.name,
+        email: req.user.email,
     })
 })
 

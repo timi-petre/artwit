@@ -1,88 +1,15 @@
-/* html {
-    box-sizing: border-box;
+:root {
+    --bs-font-sans-serif: 'Rubik', sans-serif;
 }
 
-*,
-*::after,
-*::before {
-    box-sizing: inherit;
-    margin: 0px;
-    padding: 0px;
+.container-xxl {
+    max-width: 1530px;
 }
 
 body {
+    background-image: url('../img/scattered-forcefields.svg');
     background-color: #eee;
 }
-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 2rem;
-}
-
-header,
-footer {
-    background-color: white;
-
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.93);
-    border-radius: 10px;
-    margin: 20px 0 20px 0;
-}
-
-footer {
-    padding: 1rem 2rem;
-}
-
-.container {
-    height: 100vh;
-}
-
-nav ul {
-    position: inherit;
-    width: auto;
-    background: none;
-    height: auto;
-    display: flex;
-    padding-top: 15px;
-}
-nav ul li {
-    float: left;
-    list-style-type: none;
-}
-nav ul li a {
-    color: black;
-    background-color: inherit;
-    text-align: right;
-    text-decoration: none;
-    padding: 1em 2em;
-}
-nav ul li a:hover {
-    background-color: rgb(65, 73, 78);
-    border-radius: 10px;
-    color: white;
-}
-a {
-    text-decoration: none;
-}
-
-.logo-text a {
-    color: black;
-    text-decoration: none;
-}
-
-.logo-text {
-    position: relative;
-
-    z-index: 2;
-    width: max-content;
-    /* top: 6px;
-    left: -21.5%;
-} */
-/*
-@media only screen and (min-width: 1200px) {
-    .logo-text {
-        left: -29.7%;
-    }
-} */
 
 /*? Logo animation */
 .logo-parent {
