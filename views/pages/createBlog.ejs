@@ -1,6 +1,6 @@
 <div class="container mt-3 py-5">
     <h3 class="my-3">Create Your Art here</h3>
-    <form action="/create" method="post">
+    <form action="/create" enctype="multipart/form-data" method="post">
         <input
             type="text"
             name="title"
@@ -28,6 +28,14 @@
             placeholder="Enter text here..."
             required
         ></textarea>
+
+        <label for="image">Article Image</label>
+        <input
+            type="file"
+            class="mt-3 form-control"
+            name="image"
+            accept="image/*"
+        />
 
         <input
             type="submit"

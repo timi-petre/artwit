@@ -6,8 +6,12 @@ const express = require('express')
 const passport = require('passport')
 const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose')
+const fileUpload = require('express-fileupload')
 const flash = require('connect-flash')
+const bodyParser = require('body-parser')
 const session = require('express-session')
+const path = require('path')
+const cookieParser = require('cookie-parser')
 
 const app = express()
 const port = process.env.PORT
@@ -24,13 +28,20 @@ mongoose
     .catch((err) => console.log(err))
 
 app.use(expressLayouts)
+app.use(cookieParser(process.env.COOKIE_NAME))
+
 app.set('views', './views')
 app.set('view engine', 'ejs')
-
+app.use(
+    fileUpload({
+        createParentPath: true,
+    }),
+)
 app.set('layout', './layouts/default')
 
 app.use(express.urlencoded({ extended: false }))
-
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 app.use(express.json())
 

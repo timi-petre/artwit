@@ -2,14 +2,13 @@
 
 Tema: Blog despre Arta
 
-  Entitate: Articole
-  
+Entitate: Articole
+
 Campuri:
 
-  -Categorii: titlu categoriei
-  
-  -Articole: titlu,imagine, descriere, id, Data Adaugarii, buton Articol(adaugare, stergere, actualizare),login,register.
-  
+-Categorii: titlu categoriei
+
+-Articole: titlu,imagine, descriere, id, Data Adaugarii, buton Articol(adaugare, stergere, actualizare),login,register.
 
 ![Screenshot_20221110_013717](https://user-images.githubusercontent.com/12413810/201081178-79a79719-6224-4126-8d66-fb95c326f5ec.png)
 

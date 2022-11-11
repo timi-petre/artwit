@@ -1,34 +1,77 @@
-<div class="container mt-3 py-5">
-    <h2 class="mx-2"><%- title %></h2>
-    <div class="row mt-4">
-        <% blogs.reverse() %> <% blogs.forEach(blog=>{ %>
-        <div class="card mt-3 my-5 mx-3" style="width: 20rem">
-            <div class="card-body d-flex align-items-start flex-column">
-                <div class="mb-auto p-2">
-                    <h6 class="text-muted">Author: <%= blog.name %></h6>
-                    <h5 class="card-title"><%= blog.title %></h5>
-                    <p class="card-text">
-                        <%= blog.content.slice(0,99) %> ....
-                        <a href="/blog/<%= blog._id %>">Read more</a>
-                    </p>
-                </div>
-                <div class="">
-                    <p class="text-muted">
-                        Published at:
-                        <b> <%= blog.createdAt.toLocaleString() %> </b>
-                    </p>
-                    <a href="/blog/<%= blog._id %>" class="btn btn-primary"
-                        >Read more...</a
-                    >
-                    <a href="/delete/<%=blog._id%>" class="btn btn-danger"
-                        >Delete</a
-                    >
-                    <a href="/edit/<%=blog._id%>" class="btn btn-warning"
-                        >Edit</a
-                    >
-                </div>
-            </div>
+<div class="row flex-lg-row-reverse align-items-center g-5 py-5 mb-4 mt-3">
+    <div class="col-12 col-lg-6">
+        <img
+            src="./img/art.jpg"
+            alt="Art"
+            width="607"
+            height="500"
+            class="d-block mx-lg-auto img-fluid"
+            loading="lazy"
+        />
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <h1 class="display-5 fw-bold mb-3">Huge selection of blogs ideas</h1>
+        <p class="lead">
+            The Art League is a multi-faceted visual arts organization serving
+            artists in the DC Metro area and beyond. We post news and
+            information for artists, students, exhibit- and event-goers, and
+            everyone else interested in art.
+        </p>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <a href="#" class="btn btn-primary btn-dark btn-lg px-4 me-md-2"
+                >Explore Latest</a
+            >
+            <a href="#" class="btn btn-outline-secondary btn-lg px-4 me-md-2"
+                >Show'em</a
+            >
         </div>
-        <% }) %>
     </div>
 </div>
+
+<section class="pb-4 pt-4">
+    <div class="d-flex mb-2 align-items-center">
+        <h2>Latest ideas</h2>
+        <a href="#" class="ms-auto">View More</a>
+    </div>
+
+    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+        <% if(blogs !=''){ %> <% blogs.reverse() %> <% blogs.forEach(blog=>{ %>
+        <a href="/blog/<%= blog._id %>" class="col text-center blog__link">
+            <div class="blog__img blog__img--large shadow">
+                <img
+                    src="./uploads/<%= blog.image %>"
+                    alt="Ideas for Blog"
+                    loading="lazy"
+                    width="400"
+                    height="500"
+                    class="mx-auto"
+                />
+            </div>
+            <h6 class="text-muted">Author: <%= blog.name %></h6>
+            <div class="pt-1"><%= blog.title %></div>
+        </a>
+        <% }) %> <% } %>
+    </div>
+</section>
+
+<section class="px-4 py-5 my-5 text-center">
+    <img
+        src="./img/blob.png"
+        alt="Publish you art"
+        class="d-block mx-auto mb-4 img-fluid"
+        width="300"
+        height="208"
+        loading="lazy"
+    />
+    <h1 class="display-5 fw-bold">Publish your article here today</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Publish your Article about art!</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="/create" class="btn btn-primary btn-dark btn-lg"
+                >Create Article</a
+            >
+        </div>
+    </div>
+</section>
