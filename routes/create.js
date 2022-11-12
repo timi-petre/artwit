@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Blog = require('../models/Blog')
+const path = require('path')
 
 router
     .get('/', async (req, res) => {
@@ -12,26 +13,23 @@ router
         })
     })
 
-    .post('/', (req, res) => {
-        let imageUploadFile, uploadPath
-        let { title, content, name, newImageName } = req.body
-        if (!req.files) {
-            console.log('No files were uploaded')
-        } else {
-            imageUploadFile = req.files.image
-            newImageName = imageUploadFile.name
+    .post('/', async (req, res) => {
+        let { title, content, name, image, imageUploadFile, uploadPath } =
+            req.body
 
-            uploadPath = require('path') + './uploads/' + newImageName
+        if (!title || !content || !name || !req.files)
+            return res.send(
+                'Please fill in the required or No files were uploaded',
+            )
+        imageUploadFile = req.files.image
+        image = imageUploadFile.name
 
-            imageUploadFile.mv(uploadPath, function (err) {
-                if (err) return res.status(500).send(err)
-            })
-        }
+        uploadPath = require('path').resolve('./') + '/public/uploads/' + image
 
-        if (!title || !content || !name)
-            return res.send('Please fill in the required')
-
-        const newBlog = new Blog({ title, content, name, newImageName })
+        imageUploadFile.mv(uploadPath, function (err) {
+            if (err) return res.status(500).send(err)
+        })
+        const newBlog = new Blog({ title, content, name, image })
 
         newBlog
             .save()

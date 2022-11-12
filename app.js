@@ -10,7 +10,6 @@ const fileUpload = require('express-fileupload')
 const flash = require('connect-flash')
 const bodyParser = require('body-parser')
 const session = require('express-session')
-const path = require('path')
 const cookieParser = require('cookie-parser')
 
 const app = express()
@@ -32,11 +31,14 @@ app.use(cookieParser(process.env.COOKIE_NAME))
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
+
+// enable files upload
 app.use(
     fileUpload({
         createParentPath: true,
     }),
 )
+
 app.set('layout', './layouts/default')
 
 app.use(express.urlencoded({ extended: false }))
