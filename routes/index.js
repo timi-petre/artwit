@@ -20,14 +20,6 @@ router.get('/', (req, res) => {
     })
 })
 
-//About Page
-router.get('/about', (req, res) => {
-    res.render('pages/about', {
-        title: 'About',
-        name: req.user.name,
-    })
-})
-
 // Dashboard Page
 router.get('/dashboard', (req, res) => {
     res.render('pages/dashboard', {
