@@ -11,6 +11,33 @@ body {
     background-color: rgb(243, 243, 243);
 }
 
+.blog__link {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    transition: 250ms all;
+}
+
+.blog__link:hover {
+    transform: scale(1.1);
+}
+
+.blog__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin-bottom: 10px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.blog__img img {
+    width: 100%;
+    object-fit: cover;
+}
+
 /*? Logo animation */
 .logo-parent {
     display: flex;

@@ -9,9 +9,8 @@ router
 
         res.render('pages/particularBlog', {
             blog: getBlog,
-            // title: 'Blogs',
             name: req.user.name,
-            layout: './layouts/default.ejs',
+            layout: './layouts/default',
         })
     })
 

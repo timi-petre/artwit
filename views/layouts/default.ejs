@@ -29,6 +29,7 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
         />
         <link rel="stylesheet" href="/styles/main.css" />
+        <script src="/js/script.js" defer></script>
 
         <title>
             <%= typeof title != 'undefined' ? title : 'Artwit Blog' %>
@@ -38,7 +39,7 @@
         <%- include('../partials/header.ejs') %>
         <div class="container-xxl px-md-5 bg-white shadow-lg">
             <main><%- body %></main>
+            <%- include('../partials/footer.ejs') %>
         </div>
-        <%- include('../partials/footer.ejs') %>
     </body>
 </html>
