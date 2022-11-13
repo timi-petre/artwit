@@ -118,7 +118,7 @@ router.get('/login', (req, res) => {
 })
 
 //Register Page
-router.get('/register', (req, res) => {
+router.get('/register', function (req, res) {
     res.render('pages/users/register', {
         layout: './layouts/sign-layout.ejs',
         title: 'Register',
