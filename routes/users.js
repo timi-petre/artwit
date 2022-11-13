@@ -105,12 +105,12 @@ const router = require('express').Router()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const session = require('express-session')
-
+const { authenticate, notAuthenticate } = require('../config/auth')
 //User model
 const User = require('../models/User')
 
 //Login Page
-router.get('/login', (req, res) => {
+router.get('/login', notAuthenticate, (req, res) => {
     res.render('pages/users/login', {
         layout: './layouts/sign-layout.ejs',
         title: 'Login',
@@ -118,7 +118,7 @@ router.get('/login', (req, res) => {
 })
 
 //Register Page
-router.get('/register', function (req, res) {
+router.get('/register', notAuthenticate, function (req, res) {
     res.render('pages/users/register', {
         layout: './layouts/sign-layout.ejs',
         title: 'Register',
@@ -126,7 +126,7 @@ router.get('/register', function (req, res) {
 })
 
 //Register Handle
-router.post('/register', (req, res) => {
+router.post('/register', notAuthenticate, (req, res) => {
     const { name, email, password, password2 } = req.body
     let errors = []
 
@@ -198,7 +198,7 @@ router.post('/register', (req, res) => {
 })
 
 //Login Handle
-router.post('/login', (req, res, next) => {
+router.post('/login', notAuthenticate, (req, res, next) => {
     passport.authenticate('local', {
         successRedirect: '/index',
         failureRedirect: '/users/login',
