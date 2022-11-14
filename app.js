@@ -19,7 +19,8 @@ require('./config/passport')(passport)
 
 app.use(flash())
 
-const db = require('./config/keys').MongoURI
+// const db = require('./config/keys').MongoURI
+const db = process.env.MONGODB
 
 mongoose
     .connect(db, {})
