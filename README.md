@@ -14,6 +14,23 @@ This project aims to use a blog and add resources for the field of Art.
 It is intended for everyone who wants to publish their art together with a description. Users must be logged in first, to then be able to use this blog site.
 It is a simple site that can be used by anyone.
 
+## Features
+
+-   An easy way to create a simple, secure website with a blog
+-   Support for text-based and photo-based blog formats
+-   Easy authoring in HTML, Markdown (with code formatting), or JSON
+-   Ordering of posts by publish date or content date
+-   Easy customization of site layout and formatting
+-   High resolution (2x) support for photo blog images
+-   Support for Windows and Linux hosting with Node.js
+-   Simple post format that separates content and metadata
+-   Ability to author hidden posts and schedule a publish date
+-   Automatic cross-linking of related posts
+
+## Structure
+
+-   `/app.js` Entry point for the application, configures the server and static content
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
@@ -23,6 +40,27 @@ To run this project, you will need to add the following environment variables to
 `PORT_KEY`
 
 `COOKIE_NAME_KEY`
+
+## Installation
+
+    1. Install Node.js
+    2. Fork and clone repository
+    3. Create directory under `/blog` or use one of the samples
+    4. Add static content to `/blog/yoursite/static`
+    5. `npm install`
+    6. `npm run compile`
+    7. `npm start`
+    8. Open <http://localhost:3000/> and verify
+    9. Commit changes to repository
+    10. Deploy repository to hosting service
+
+## Configuration
+
+-   In folder `config` create `keys.js` file
+-   add & change the `CHANGE_HERE` value from `keys.js`;
+
+Here:
+`module.exports = { MongoURI: CHANGE_HERE, } `
 
 ## Run Locally
 
@@ -41,7 +79,7 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+  npm install express
 ```
 
 Start the server
@@ -52,17 +90,40 @@ Start the server
 
 ## Screenshots
 
-![App Screenshot](https://user-images.githubusercontent.com/12413810/201081178-79a79719-6224-4126-8d66-fb95c326f5ec.png)
-![App Screenshot](https://user-images.githubusercontent.com/12413810/201081197-8b6c28d7-57d2-4667-8336-430d7d2d910f.png)
-![App Screenshot](https://user-images.githubusercontent.com/12413810/201479666-096b8ea6-03e1-4c9b-aa56-87dd98467c7a.png)
-![App Screenshot](https://user-images.githubusercontent.com/12413810/201479680-0d593f91-6808-4985-8a1d-935616f3de94.png)
-![App Screenshot](https://user-images.githubusercontent.com/12413810/201479684-44706cdc-a611-45cd-a46d-7b5181a2a016.png)
-![App Screenshot](https://user-images.githubusercontent.com/12413810/201479693-d9e08e31-7eb5-4eed-b1e4-4540c344d88d.png)
-![App Screenshot](https://user-images.githubusercontent.com/12413810/201479704-6a9801dd-43e4-44df-a553-7656ed341349.png)
+<details>
+    <summary><b>Welcome</b> Page</summary>
+    <img src="https://user-images.githubusercontent.com/12413810/201081178-79a79719-6224-4126-8d66-fb95c326f5ec.png"/>
+</details>
 
-## Authors
+<details>
+    <summary><b>Login</b> Page</summary>
+    <img src="https://user-images.githubusercontent.com/12413810/201081197-8b6c28d7-57d2-4667-8336-430d7d2d910f.png"/>
+</details>
 
--   [@timi-petre](https://github.com/timi-petre)
+<details>
+    <summary><b>Home</b> Page</summary>
+    <img src="https://user-images.githubusercontent.com/12413810/201479666-096b8ea6-03e1-4c9b-aa56-87dd98467c7a.png"/>
+</details>
+
+<details>
+    <summary><b>Latest</b> Page</summary>
+    <img src="https://user-images.githubusercontent.com/12413810/201479680-0d593f91-6808-4985-8a1d-935616f3de94.png"/>
+</details>
+
+<details>
+    <summary><b>Create Article</b> Section</summary>
+    <img src="https://user-images.githubusercontent.com/12413810/201479684-44706cdc-a611-45cd-a46d-7b5181a2a016.png"/>
+</details>
+
+<details>
+    <summary><b>Create</b> Page</summary>
+    <img src="https://user-images.githubusercontent.com/12413810/201479693-d9e08e31-7eb5-4eed-b1e4-4540c344d88d.png"/>
+</details>
+
+<details>
+    <summary><b>Dashboard</b> Page</summary>
+    <img src="https://user-images.githubusercontent.com/12413810/201479704-6a9801dd-43e4-44df-a553-7656ed341349.png"/>
+</details>
 
 ## Contributing
 
@@ -86,19 +147,28 @@ Examples of unacceptable behavior by participants include:
     4. Publishing others’ private information, such as a physical or electronic address, without explicit permission
     5. Other conduct which could reasonably be considered inappropriate in a professional setting
 
-Thanks to [Open Source Code of Conduct ](https://opensource.fb.com/code-of-conduct/) and [React](https://github.com/facebook/react)
+Easy way
 
-## Tech Stack
+-   Open issue, discuss proposal
+-   Fork and clone repository
+-   Change code and update tests
+-   `npm test`
+-   `npm run lint`
+-   Review changes
+-   Send pull request
 
-**Client:** HTML, CSS, Javascript, EJS, Bootstrap
+Thanks to [Open Source Code of Conduct](https://opensource.fb.com/code-of-conduct/) and [React](https://github.com/facebook/react)
 
-**Server:** Node, Express
+## Dependencies
 
-**Database:** MongoDB
-
-## Support
-
-For support, email timoteisorin.petre@gmail.com or join my Discord channel.
+| Project     | Home Page                     |
+| ----------- | ----------------------------- |
+| Express     | <https://expressjs.com/>      |
+| NodeJS      | <https://nodejs.org/en/>      |
+| MongoDB     | <https://www.mongodb.com/>    |
+| EJS         | <https://ejs.co/>             |
+| Passport.js | <https://www.passportjs.org/> |
+| Bootstrap   | <https://getbootstrap.com/>   |
 
 ## Usage/Examples
 
@@ -142,7 +212,7 @@ module.exports = {
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[Documentation](https://classroom.google.com/u/0/c/NTI3MDY3MDI0Mzk3/a/NTI3MDY3MDI0NDU4/details)
 
 Tema: Blog despre Arta
 
@@ -150,10 +220,28 @@ Entitate: Articole
 
 Campuri:
 
--Categorii: titlu categoriei
-
--Articole: titlu,imagine, descriere, id, Data Adaugarii, buton Articol(adaugare, stergere, actualizare),login,register.
-
+<details>
 <summary>
-Special thanks to https://www.theartleague.org/about/
+Categorii
 </summary>
+Titlu Categoriei
+</details>
+
+<details>
+  <summary>Articole</summary>
+  titlu,imagine, descriere, id, Data Adaugarii, buton Articol(adaugare, stergere, actualizare),login,register.
+</details>
+
+> Special thanks to https://www.theartleague.org/about/
+
+## Authors
+
+-   [@timi-petre](https://github.com/timi-petre)
+
+## Support
+
+For support, email timoteisorin.petre@gmail.com or join my Discord channel.
+
+## Feedback
+
+If you have any feedback, please reach out to us at timoteisorin.petre@gmail.com
