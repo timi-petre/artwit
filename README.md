@@ -29,7 +29,11 @@ It is a simple site that can be used by anyone.
 
 ## Structure
 
--   `/app.js` Entry point for the application, configures the server and static content
+-   `/app.js` Entry point for the application, configures the server and static/dynamic content
+-   `/blog.js` Implementation of the blog, titles, authors
+-   `/config` Environment variables used to control basic behavior
+-   `/routes` Define the endpoints at which requests can be made. Route paths can be strings, string patterns, or regular expressions.
+-   `/models` Blog, Users schema used for defining validations or sanitizations on requests.
 
 ## Environment Variables
 
