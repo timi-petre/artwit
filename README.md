@@ -1,7 +1,4 @@
-
 ![Logo](https://i.imgur.com/Z7ci0uP.png)
-
-
 
 # Artwit
 
