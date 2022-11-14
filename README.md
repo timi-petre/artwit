@@ -238,6 +238,14 @@ Titlu Categoriei
 
 > Special thanks to https://www.theartleague.org/about/
 
+## Badges
+
+[![Github Stars](https://img.shields.io/github/stars/timi-petre/artwit?style=social)](https://choosealicense.com/licenses/mit/)
+[![Issues](https://img.shields.io/github/issues/timi-petre/artwit)](https://opensource.org/licenses/)
+[![Commits](https://img.shields.io/github/commit-activity/w/timi-petre/artwit)](http://www.gnu.org/licenses/agpl-3.0)
+
+Add badges from somewhere like: [shields.io](https://shields.io/)
+
 ## Authors
 
 -   [@timi-petre](https://github.com/timi-petre)
