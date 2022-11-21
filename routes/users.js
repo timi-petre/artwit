@@ -105,7 +105,7 @@ const router = require('express').Router()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
 const session = require('express-session')
-const { authenticate, notAuthenticate } = require('../config/auth')
+const { notAuthenticate } = require('../config/auth')
 //User model
 const User = require('../models/User')
 
