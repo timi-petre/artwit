@@ -11,7 +11,6 @@ const session = require('express-session')
 
 const app = express()
 const port = process.env.PORT
-
 require('./config/passport')(passport)
 
 app.use(flash())

@@ -8,7 +8,6 @@ router
             name: req.user.name,
         })
     })
-
     .post('/', (req, res) => {
         const { title, content, name } = req.body
         if (!title || !content || !name)

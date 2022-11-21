@@ -2,7 +2,6 @@ const express = require('express')
 const Blog = require('../models/Blog')
 const router = express.Router()
 
-//Welcome Page
 router.get('/', (req, res) => {
     res.render('pages/welcome', {
         title: 'Welcome',
@@ -10,7 +9,6 @@ router.get('/', (req, res) => {
     })
 })
 
-// Index Page
 router.get('/index', async (req, res) => {
     const allBlogs = await Blog.find()
     res.render('pages/index', {
@@ -20,7 +18,6 @@ router.get('/index', async (req, res) => {
     })
 })
 
-//About Page
 router.get('/about', (req, res) => {
     res.render('pages/about', {
         title: 'About',
@@ -28,7 +25,6 @@ router.get('/about', (req, res) => {
     })
 })
 
-// Dashboard Page
 router.get('/dashboard', (req, res) => {
     res.render('pages/dashboard', {
         title: 'Dashboard',
