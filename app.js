@@ -19,6 +19,7 @@ require('./config/passport')(passport)
 
 app.use(flash())
 
+// const db = require('./config/keys').MongoURI
 const db = process.env.MONGODB
 
 mongoose
@@ -32,6 +33,7 @@ app.use(cookieParser(process.env.COOKIE_NAME))
 app.set('views', './views')
 app.set('view engine', 'ejs')
 
+// enable files upload
 app.use(
     fileUpload({
         createParentPath: true,

@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Blog = require('../models/Blog')
+const path = require('path')
 
 router
     .get('/', async (req, res) => {

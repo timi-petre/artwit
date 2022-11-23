@@ -20,6 +20,7 @@ router.use(
 router.use(passport.initialize())
 router.use(passport.session())
 
+// Index Page
 router.get('/index', authenticate, async (req, res) => {
     const allBlogs = await Blog.find()
     res.render('pages/index', {
@@ -29,6 +30,7 @@ router.get('/index', authenticate, async (req, res) => {
     })
 })
 
+//Welcome Page
 router.get('/', notAuthenticate, (req, res) => {
     res.render('pages/welcome', {
         title: 'Welcome',
@@ -36,6 +38,7 @@ router.get('/', notAuthenticate, (req, res) => {
     })
 })
 
+// Dashboard Page
 router.get('/dashboard', authenticate, (req, res) => {
     res.render('pages/dashboard', {
         title: 'Dashboard',
