@@ -36,7 +36,6 @@ router
             name: req.user.name,
         })
     })
-
     .post('/edit/:id', (req, res) => {
         const { id } = req.params
         const { title, content, name } = req.body
