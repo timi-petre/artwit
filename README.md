@@ -39,11 +39,13 @@ It is a simple site that can be used by anyone.
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`SESSION_SECRET_KEY`
+`SESSION_SECRET` = keyboard cat
 
-`PORT_KEY`
+`PORT` = 3000
 
-`COOKIE_NAME_KEY`
+`COOKIE_NAME` = ArtBlogSecure
+
+`MONGODB` = CHANGE_HERE (MongoDB API)
 
 ## Installation
 
@@ -236,7 +238,7 @@ Titlu Categoriei
   titlu,imagine, descriere, id, Data Adaugarii, buton Articol(adaugare, stergere, actualizare),login,register.
 </details>
 
-> Special thanks to https://www.theartleague.org/about/
+> Special thanks to [Victor Locoman](https://github.com/LyMc)
 
 ## Badges
 

@@ -1,7 +1,6 @@
 const router = require('express').Router()
 const bcrypt = require('bcrypt')
 const passport = require('passport')
-const session = require('express-session')
 const { notAuthenticate } = require('../config/auth')
 
 const User = require('../models/User')
@@ -37,7 +36,7 @@ router.post('/register', notAuthenticate, (req, res) => {
     }
 
     if (errors.length > 0) {
-        res.render('register', {
+        res.render('pages/users/register', {
             errors,
             name,
             email,
