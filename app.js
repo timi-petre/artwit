@@ -8,7 +8,6 @@ const expressLayouts = require('express-ejs-layouts')
 const mongoose = require('mongoose')
 const fileUpload = require('express-fileupload')
 const flash = require('connect-flash')
-const bodyParser = require('body-parser')
 const session = require('express-session')
 const cookieParser = require('cookie-parser')
 
@@ -40,10 +39,8 @@ app.use(
 
 app.set('layout', './layouts/default')
 
-app.use(express.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
+app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 app.use(
@@ -55,7 +52,6 @@ app.use(
 )
 
 app.use(passport.initialize())
-app.use(passport.session())
 
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg')
