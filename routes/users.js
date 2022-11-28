@@ -42,6 +42,7 @@ router.post('/register', notAuthenticate, (req, res) => {
             email,
             password,
             password2,
+            layout: './layouts/sign-layout.ejs',
         })
     } else {
         User.findOne({ email: email }).then((user) => {

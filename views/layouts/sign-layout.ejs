@@ -21,7 +21,9 @@
             defer
         ></script>
         <link rel="stylesheet" href="/styles/main.css" />
-        <title><%- title %></title>
+        <title>
+            <%= typeof title != 'undefined' ? title : 'Artwit Blog' %>
+        </title>
     </head>
 
     <body>
