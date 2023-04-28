@@ -21,9 +21,6 @@ It is a simple site that can be used by anyone.
 -   Easy authoring in HTML, Markdown (with code formatting), or JSON
 -   Ordering of posts by publish date or content date
 -   Easy customization of site layout and formatting
--   Simple post format that separates content and metadata
--   Ability to author hidden posts and schedule a publish date
--   Automatic cross-linking of related posts
 
 ## Structure
 
